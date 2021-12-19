@@ -9,6 +9,53 @@
 </div>
 
 <!-- BEGIN_TF_DOCS -->
+
+## Requirements
+
+| Name                                                                        | Version   |
+| --------------------------------------------------------------------------- | --------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement_terraform)    | >= 1.0    |
+| <a name="requirement_aws"></a> [aws](#requirement_aws)                      | >= 3.64.2 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement_kubernetes) | >= 2.6.1  |
+
+## Providers
+
+| Name                                                                  | Version |
+| --------------------------------------------------------------------- | ------- |
+| <a name="provider_aws"></a> [aws](#provider_aws)                      | 3.70.0  |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider_kubernetes) | 2.7.1   |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name                                                                                                                                          | Type        |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [aws_iam_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy)                                 | resource    |
+| [aws_iam_role.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role)                                     | resource    |
+| [aws_iam_role_policy_attachment.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource    |
+| [kubernetes_service_account.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service_account)         | resource    |
+| [aws_caller_identity.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)                    | data source |
+| [aws_eks_cluster.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster)                            | data source |
+| [aws_iam_policy_document.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document)            | data source |
+
+## Inputs
+
+| Name                                                                           | Description                                       | Type          | Default     | Required |
+| ------------------------------------------------------------------------------ | ------------------------------------------------- | ------------- | ----------- | :------: |
+| <a name="input_cluster"></a> [cluster](#input_cluster)                         | The cluster to apply the patch to                 | `string`      | n/a         |   yes    |
+| <a name="input_inline_policies"></a> [inline_policies](#input_inline_policies) | A list of named policies to inline into this role | `map(string)` | `{}`        |    no    |
+| <a name="input_name"></a> [name](#input_name)                                  | The name of the service account                   | `string`      | n/a         |   yes    |
+| <a name="input_namespace"></a> [namespace](#input_namespace)                   | The namespace of the service account              | `string`      | `"default"` |    no    |
+
+## Outputs
+
+| Name                                                                                            | Description                     |
+| ----------------------------------------------------------------------------------------------- | ------------------------------- |
+| <a name="output_service_account_name"></a> [service_account_name](#output_service_account_name) | The name of the service account |
+
 <!-- END_TF_DOCS -->
 
 ## Contributing

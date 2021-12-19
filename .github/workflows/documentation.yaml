@@ -1,0 +1,17 @@
+jobs:
+  documentation:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: terraform-docs/gh-actions@v0.11.0
+        with:
+          git-commit-message: |
+            docs: Run terraform-docs
+          git-push: true
+          output-file: README.md
+          output-method: inject
+          working-dir: .
+name: Run terraform-docs
+on:
+  - pull_request
+  - push
